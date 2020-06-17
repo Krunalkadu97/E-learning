@@ -1,0 +1,61 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<script src="https://kit.fontawesome.com/35bad21f76.js" crossorigin="anonymous"></script>
+{% block title %}
+	Sign Up
+{% endblock %}
+</head>
+<body>
+
+<div class="sidenav">
+				
+				
+				
+</div>
+
+<div class="main">
+		<section class="contact section " id="contact">
+					<div class="container">
+						<div class="row">
+							<div class="section-title padd-15">
+								
+									<h2>SIGN-UP</h2>
+								
+								
+							</div>
+						</div>
+						
+					
+						<div class="row">
+							<form class="contact-form padd-15" action="." method="post">
+								<div class="row">
+											<div class="form-item col-12 padd-15">
+												<div class="form-group">
+														{{form|crispy}}
+									    		</div>
+											</div>
+									</div>
+									{% csrf_token %}
+								
+									<div class="row">
+											<div class="col-12 padd-15">
+												<button type="submit" class="btn">Create-Account</button>
+											</div>
+									</div>
+							</form>
+						</div>
+						<!--contact form end-->
+						</div>
+					</section>
+
+	</div>
+</body>
+</html> 

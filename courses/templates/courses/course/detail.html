@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load course %}
+
+{% block title %}
+	{{object.title}}
+{% endblock %}
+{% block content %}
+
+	{% with subject=course.subject %}
+				<div class="content-details">
+
+					<fieldset>
+					
+						<legend>{{object.title}}</legend>
+						
+							<div class="c-list">
+								<div class="title">
+									<h2>Overview.</h2>
+									<hr>
+								</div>
+									
+								
+								<div class="item">
+									<p>
+										<a href="{% url 'course_list_subject' subject.slug %}">{{subject.title}}.</a>
+									</p>
+									<h5><span>{{course.modules.count}} </span>modules.</h5>
+									<h5>Instructor: <span>{{course.owner.get_full_name}}</span></h5>
+									
+								
+								</div>
+								
+
+								
+
+								
+							</div>	
+				
+							<div class="forms">
+									{{object.overview|linebreaks}}
+									{% if request.user.is_authenticated %}
+										<form action="{% url 'student_enroll_course' %}" method="post">
+											<div class="element">
+												{{enroll_form}}
+											{% csrf_token %}
+											</div>
+											
+											<input type="submit" class="btn" value="Enroll Now">
+										</form>
+									{% else %}
+
+										<a href="{% url 'student_registration' %}" class="btn" role="button" aria-pressed="true">Register To Enroll</a>
+									{% endif %}
+								</div>
+										
+									
+						</fieldset>
+								
+					</div>				
+									
+							
+
+				{% endwith %}
+  
+{% endblock %}

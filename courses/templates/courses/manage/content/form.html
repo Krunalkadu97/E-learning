@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load course %}
+
+{% block title %}
+	{% if object %}
+		Edit Content "{{ object.title }}"
+	{% else %}
+		Create New Content
+	{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="content-details">
+
+					
+								<legend>
+								{% if object %}
+									<h2>Edit Content "{{ object.title }}"</h2>
+								{% else %}
+									<h2>Add New Content</h2>
+								{% endif %}
+								</legend>
+	
+	<div class="ecform">
+		<h2> Content Form</h2>
+			<form action="" method="post" enctype="multipart/form-data">
+				<div class="item">
+						{{form|crispy}}
+						{% csrf_token %}
+				</div>
+								
+				<button type="submit" class="btn">Save-Content</button>
+			</form>
+	</div>
+						
+</div>
+{% endblock %}

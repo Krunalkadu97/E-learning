@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load course %}
+
+{% block title %}Delete Course{% endblock %}
+{% block content %}
+
+<div class="delete">
+	
+		<legend>Detete</legend>
+		<div class="ecform">
+			<form action="" method="post">
+								{% csrf_token %}
+								<h1>Are you sure you want to delete "{{object}}"?</h1>
+								<input type="submit" class="btn" value="Confirm">
+			</form>
+		</div>
+	
+</div>
+							
+							
+		
+{% endblock %}

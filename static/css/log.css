@@ -1,0 +1,132 @@
+*{
+  margin:0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+}
+::before,::after{
+  box-sizing: border-box;
+}
+
+.logout-content{
+      height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 120px;
+    overflow-x: hidden;
+    text-align: center;
+  display: inline-block;
+}
+
+ hr{
+ height:  2px;
+  background-color:  #DC143C;
+  border-width: 0;
+ }
+
+.heading h1{
+  color:#DC143C;
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: left;
+  margin: 5px;
+}
+
+.content{
+  color: #696969;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 30px;
+  
+  margin-bottom: 10px;
+}
+p{
+   font-size: 30px;
+   color: #696969;
+   margin-bottom: 10px;
+    margin-top: 20px;
+}
+.content a{
+  background-color: #DC143C;
+  color: white;
+  font-size: 20px;
+  border-radius: 30px;
+  border:none;
+  padding: 10px;
+  margin-top: 50px;
+  margin: 5px;
+  padding-left:30px;
+  padding-right:30px;
+  margin-bottom: 10px;
+  margin-left: 150px;
+}
+
+/*log in*/
+fieldset{
+  max-width: 100%;
+  padding-left: 50px;
+  border-style: solid;
+  border-radius: 60px;
+  left: 40px;
+  border-color: #696969;
+  border-width: 3px;
+  margin-top: 30px;
+  padding: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.login-form{
+  width: 100%;
+  margin-top: 40px;
+}
+
+.login-form legend{
+  padding: 10px;
+  color: #DC143C;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 45%;
+}
+.element{
+  width: 100%;
+  margin: 30px;
+  margin-left: 100px;
+}
+.btn{
+  width: 80%;
+  border-style: none;
+  background-color: #DC143C;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right:30px;
+  margin-top: 20px;
+  height: 40px;
+  margin:20px;
+}
+label{
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff6347;
+  margin-bottom: 10px;
+  margin-top: 10px;
+ margin: 20px;
+}
+input{
+  width: 80%;
+  border-style: solid;
+  border-color: #696969;
+  height: 40px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.textinput{
+font-size: 20px;
+font-weight: bold;
+color: #696969;
+}

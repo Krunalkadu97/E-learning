@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load course %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+
+<div class="content-details-admin">
+
+		<legend>Courses</legend>
+		<div class="course-conetnt">
+
+			{% for course in object_list %}
+
+			<div class="content-item">
+					<div class="title">
+						<h3>{{course.title}}</h3>
+					</div>
+					<div class="buttons">
+							<a href="{% url 'course_edit' course.id %}" class="item-li">Edit</a>
+							<a href="{% url 'course_delete' course.id %}" class="item-li">Delete</a>
+							<a href="{% url 'course_module_update' course.id %}" class="item-li">Edit-Modules</a>
+						{% if course.modules.count > 0 %}
+							<a href="{% url 'module_content_list' course.modules.first.id %}" class="item-li">Manage contents</a>
+										{% endif%}
+					</div>
+		
+			
+					{% empty %}
+					<div class="nocontent">
+							<p>You haven't created any courses yet.</p>
+							<a href="{% url 'course_create' %}" class="btn">Create New Course</a>
+					</div>
+			</div>
+			{% endfor %}
+
+			<hr>
+		</div>
+			
+</div>
+
+<div class="bottom">
+				<a href="{% url 'course_create' %}" class="btn">Create New Course</a>
+</div>
+{% endblock %}

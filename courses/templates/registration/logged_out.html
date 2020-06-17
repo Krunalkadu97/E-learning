@@ -1,0 +1,28 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}">
+<script src="https://kit.fontawesome.com/35bad21f76.js" crossorigin="anonymous"></script>
+{% block title %}LOG-OUT{% endblock %}
+</head>
+<body>
+
+<div class="logout-content">
+	<div class="heading">
+		<h1>Log-out</h1>
+		<hr>
+	</div>
+	<div class="content">
+		<p>You have been successfully logout.</p>
+		
+		<p>You can</p> 
+			<a href="{% url 'login' %}" class="btn">Login Again Here</a>
+		
+	</div>
+	
+</div>														
+</body>
+</html> 

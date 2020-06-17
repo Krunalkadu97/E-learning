@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load course %}
+
+{% block title %}
+	Edit "{{course.title}}""
+{% endblock %}
+{% block content %}
+
+
+							
+<div class="left">
+	<div class="content-item">
+  		{% with course=module.course %}
+  			<h1>Course "{{course.title}}"</h1>
+  				<h3 class="title">Modules</h3>
+  				{% for m in course.modules.all %}
+  				<li data-id="{{m.id}}" {% if m == module %} class="selected" {% endif %}>
+													<a href="{% url 'module_content_list' m.id %}">
+														<span>
+															Module <span class="order">{{m.order|add:1}}</span>
+														</span>
+														<br>
+														{{m.title}}
+													</a>
+												</li>
+				{% empty %}
+												<li><a href="#">No Modules Yet..</a></li>
+				{% endfor %}
+
+			<p><a href="{% url 'course_module_update' course.id %}" class="btn">Edit Modules</a></p>
+
+    </div>
+  </div>
+
+
+ <div class="right">
+  	<div class="item">
+  		<div class="title">
+   			<h2><a href="#">Module {{module.order|add:1}}:{{module.title}}</a></h2>
+   		</div>
+   		<div class="content-item">
+			<h6>Module Content</h6>
+				{% for content in module.contents.all %}
+						{% with item=content.item %}
+								<p><a href="#"><span>{{item}} ({{item|model_name}})</span></a></p>
+									<div class="bottons">
+										<a href="{% url 'module_content_update' module.id item|model_name item.id %}">Edit</a>
+												<div class="ecform">
+														<form action="{% url 'module_content_delete' content.id %}" method="post">
+														<input type="submit" class="dlt" value="Delete">
+														{% csrf_token %}
+														</form>
+												</div>
+									</div>
+									
+										
+							
+											{% endwith %}
+			{% empty %}
+			<h2>This module has no contents yet.</h2>
+		</div>
+												
+			{% endfor %}
+	</div>
+	<h4 class="timeline-title"> Add new Content:</h4>
+	<div class="add-content">
+								
+												<ul>
+													<li><a href="{% url 'module_content_create' module.id 'text' %}" class="btn">Text</a></li>
+													<li><a href="{% url 'module_content_create' module.id 'image' %}" class="btn">Image</a></li>
+													<li><a href="{% url 'module_content_create' module.id 'video' %}" class="btn">Video</a></li>
+													<li><a href="{% url 'module_content_create' module.id 'file' %}" class="btn">File</a></li>
+												</ul>
+	</div>
+			
+
+					{% endwith %} 
+
+  </div>
+
+</div>
+
+{% endblock %}

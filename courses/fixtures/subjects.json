@@ -1,0 +1,40 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 1,
+  "fields": {
+    "title": "Music",
+    "slug": "music"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Post",
+    "slug": "post",
+    "overview": "This is the first blog.",
+    "created": "2020-05-18T07:20:20.301Z"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "title": "ffmmg",
+    "description": ".cv,;dfgfglrg;erlg"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "course": 1,
+    "title": "v,f,r';r,;",
+    "description": "fgv',;"
+  }
+}
+]

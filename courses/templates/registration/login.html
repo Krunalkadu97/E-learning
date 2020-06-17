@@ -1,0 +1,47 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}">
+<script src="https://kit.fontawesome.com/35bad21f76.js" crossorigin="anonymous"></script>
+{% block title %}LOG-IN{% endblock %}
+</head>
+<body>
+
+<div class="login-details">
+	<div class="heading">
+		{% if form.errors %}
+					
+					<h1>Please enter valid username or password.</h1>
+			
+		{% else %}
+							
+					<h1>Login</h1>
+			
+		{% endif %}
+		<hr>
+	</div>
+
+	<div class="login-form">
+		
+		<div class="form-log">
+			<fieldset>
+				<legend>Login Form</legend>
+				<form action="{% url 'login' %}" method="post">
+					<div class="element">
+						{{form|crispy}}
+						{% csrf_token %}
+
+						<button type="submit" class="btn">Log-in</button>
+					</div>
+
+					
+				</form>
+			</fieldset>
+		</div>
+	</div>
+</div>				
+</body>
+</html> 

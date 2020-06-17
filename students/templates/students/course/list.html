@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+	My Course.
+{% endblock %}
+{% block content %}
+
+<div class="content-details">
+
+					
+		<legend>Courses </legend>
+	
+		
+						
+	<div class="clist">
+		{% for course in object_list %}		
+		<div class="title">
+			<h3>{{course.title}}</h3>
+		</div>
+		<div class="item">
+			<a href="{% url 'student_course_detail' course.id %}">Access Content.</a>
+			<hr>
+		</div>
+		{% empty %}
+		<div class="item">
+			<p>You are not enrolled in any courses yet...</p>
+				<a href="{% url 'course_list' %}">Browse courses</a> 
+				<p>to enroll in course.</p>						
+		</div>
+			{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
+

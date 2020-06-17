@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}{{object.title}}{% endblock %}
+{% block content %}
+<div class="left">
+	<div class="content-item">
+   {% for m in object.modules.all %}
+   	<li>
+			<a href="{% url 'student_course_detail_module' object.id m.id %}" class="active">
+				<span>
+						Module <span class="order">{{m.order|add:1}}</span>
+				</span>
+				<br>
+						{{m.title}}
+			</a>
+	</li>
+	{% empty %}
+	<li>No Module Yet..</li>											
+	{% endfor %}
+
+  </div>
+</div>
+<div class="right">
+   						{% for content in module.contents.all %}
+							{% with item=content.item %}
+							<div class="item-content-box">
+								<div class="title">
+									<h3>{{item.title}}</h3>
+								</div>
+								<div class="box-content">
+									<h6>{{item.render}}</h6>
+								</div>
+								
+							</div>
+							{% endwith %}
+						{% endfor %}
+
+  </div>
+
+	
+{% endblock %}
+
+
+
+
+
